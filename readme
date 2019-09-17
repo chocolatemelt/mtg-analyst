@@ -1,0 +1,4 @@
+mtg analyst
+===========
+
+just playing around with streamed analytics. runs on druid, kafka, and scryfall (as well as related deps).
