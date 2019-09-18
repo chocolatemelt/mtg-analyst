@@ -23,8 +23,15 @@ def setparse(mtgset, output):
 
     carddata = list(map(process, setdata))
 
+    count = 0
     for card in carddata:
+        if sys.stdout is not sys.__stdout__:
+            count += 1
+            sys.__stdout__.write('>')
         print(json.dumps(card))
+
+    if sys.stdout is not sys.__stdout__:
+        sys.__stdout__.write('\nprocessed ' + str(count) + ' cards from ' + mtgset + '\n')
 
 if __name__ == '__main__':
     setparse(sys.argv[1], sys.__stdout__)
