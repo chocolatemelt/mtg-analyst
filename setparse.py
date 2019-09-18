@@ -13,4 +13,5 @@ def process(card):
 
 carddata = list(map(process, setdata))
 
-print(carddata)
+for card in carddata:
+    print(json.dumps(card))
