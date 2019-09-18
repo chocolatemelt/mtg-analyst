@@ -4,6 +4,7 @@ import requests
 r = requests.get("https://api.scryfall.com/sets").json()
 r = r['data']
 ignore = [
+        '4bb',
         'fbb',
         'sum'
         ]

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import setparse
+import time
 from datetime import datetime
 
 if __name__ == '__main__':
@@ -9,3 +10,4 @@ if __name__ == '__main__':
     f = open('sets.txt', 'r')
     for mtgset in f.readlines():
         setparse.setparse(mtgset, outf)
+        time.sleep(1)
