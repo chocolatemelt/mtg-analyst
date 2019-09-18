@@ -7,30 +7,54 @@
 			"parseSpec": {
 				"format": "json",
 				"timestampSpec": {
-					"column": "time",
+					"column": "timestamp",
 					"format": "auto"
+				},
+				"flattenSpec": {
+					"useFieldDiscovery": true,
+					"fields": [
+						{
+							"type": "path",
+							"name": "usd_price",
+							"expr": "$.prices.usd"
+						}
+					]
 				},
 				"dimensionsSpec": {
 					"dimensions": [
-						"channel",
-						"cityName",
-						"comment",
-						"countryIsoCode",
-						"countryName",
-						"isAnonymous",
-						"isMinor",
-						"isNew",
-						"isRobot",
-						"isUnpatrolled",
-						"metroCode",
-						"namespace",
-						"page",
-						"regionIsoCode",
-						"regionName",
-						"user",
-						{ "name": "added", "type": "long" },
-						{ "name": "deleted", "type": "long" },
-						{ "name": "delta", "type": "long" }
+						"id",
+						"oracle_id",
+						"tcgplayer_id",
+						"name",
+						"lang",
+						"released_at",
+						"mana_cost",
+						{
+							"type": "long",
+							"name": "cmc"
+						},
+						"type_line",
+						"oracle_text",
+						"colors",
+						"color_identity",
+						"set",
+						"set_name",
+						"set_type",
+						{
+							"type": "long",
+							"name": "collector_number"
+						},
+						"rarity",
+						"flavor_text",
+						"artist",
+						{
+							"type": "long",
+							"name": "edhrec_rank"
+						},
+						{
+							"type": "float",
+							"name": "usd_price"
+						}
 					]
 				}
 			}
