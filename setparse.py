@@ -5,6 +5,19 @@ import sys
 from datetime import datetime
 
 def setparse(mtgset, output):
+    """Fetches set data from scryfall and outputs it to the given buffer.
+
+    setparse outputs debug data to standard out if output is anything
+    but standard out, allowing for a little more flexibility in where
+    to output the actual JSON data.
+
+    Arguments:
+        mtgset
+            A string code denoting the set to be fetched.
+        output
+            A file or standard output buffer to send the set data to.
+    """
+
     sys.stdout = output
     more = True
     setdata=[]
