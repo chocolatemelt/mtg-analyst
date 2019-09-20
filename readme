@@ -2,3 +2,5 @@ mtg analyst
 ===========
 
 just playing around with streamed analytics. runs on druid, kafka, and scryfall (as well as related deps).
+generate dump with batch.py or individual sets with setparse.py
+generate all current commander, core, and expansion sets with genset.py
