@@ -4,3 +4,12 @@ mtg analyst
 just playing around with streamed analytics. runs on druid, kafka, and scryfall (as well as related deps).
 generate dump with batch.py or individual sets with setparse.py
 generate all current commander, core, and expansion sets with genset.py
+
+kafka / druid quickstart:
+1. download druid, zookeeper, and kafka tarballs and unzip them
+2. move zookeeper into druid root as folder zk
+3. start druid: ./bin/start-micro-quickstart
+4. start kafka: ./bin/kafka-server-start.sh ./config/server.properties
+5. start mtg topic: ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic mtg
+6. submit mtg supervisor: curl -XPOST -H'Content-Type: application/json' -d @./mtg-spec.json http://localhost:8081/druid/indexer/v1/supervisor
+7: stream data as you like
