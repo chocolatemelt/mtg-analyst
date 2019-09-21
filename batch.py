@@ -27,39 +27,57 @@ def batch_recv():
         setparse.setparse(mtgset, outf)
         time.sleep(1)
 
-def cfj(filename = None):
+def cfj(filename = datetime.now().strftime('%Y-%m-%d') + '-dump.json'):
     """Emulates tar cfj for a given file under the data folder.
 
     Arguments:
         filename
             A named file under the data/ folder.
     """
-    if not filename:
-        filename = datetime.now().strftime('%Y-%m-%d') + '-dump.json'
     output = filename + '.tar.bz2'
     with tarfile.open(output, 'w:bz2') as tar:
         tar.add('data/' + filename, arcname = filename)
 
-def xf(filename = None):
+def xf(filename = datetime.now().strftime('%Y-%m-%d') + '-dump.json.tar.bz2'):
     """Emulates tar xf for a given tar.bz file.
 
     Arguments:
         filename
             A named file.
     """
-    if not filename:
-        filename = datetime.now().strftime('%Y-%m-%d') + '-dump.json.tar.bz2'
     tar = tarfile.open(filename, 'r:bz2')
     tar.extractall('data/')
     tar.close()
 
-def up(filename):
+def up(filename = datetime.now().strftime('%Y-%m-%d') + '-dump.json.tar.bz2'):
     files = { 'file': open(filename, 'rb') }
     print(requests.post(config.api, files=files).text)
 
-def dl(filename):
+def dl(filename = datetime.now().strftime('%Y-%m-%d') + '-dump.json.tar.bz2'):
     r = requests.get(config.api + '?file=' + filename, allow_redirects=True)
     open(filename, 'wb').write(r.content)
 
 if __name__ == '__main__':
-    dl(sys.argv[1])
+    if len(sys.argv) > 1:
+        if sys.argv[1] == '-d':
+            if len(sys.argv) > 2:
+                dl(sys.argv[2])
+                xf(sys.argv[2])
+            else:
+                dl()
+                xf()
+        elif sys.argv[1] == '-u':
+            if len(sys.argv) > 2:
+                cfj(sys.argv[2])
+                up(sys.argv[2] + '.tar.bz2')
+            else:
+                cfj()
+                up()
+        elif sys.argv[1] == '-b':
+            batch_recv()
+        else:
+            print('nope')
+    else:
+        batch_recv()
+        cfj()
+        up()
