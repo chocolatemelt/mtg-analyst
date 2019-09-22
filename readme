@@ -13,3 +13,7 @@ kafka / druid quickstart:
 5. start mtg topic: ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic mtg
 6. submit mtg supervisor: curl -XPOST -H'Content-Type: application/json' -d @./mtg-spec.json http://localhost:8081/druid/indexer/v1/supervisor
 7: stream data as you like
+
+faq:
+why tar.bz2 for single files
+	i wasn't paying attention, and by the time i did, i didn't really want to change it
