@@ -96,10 +96,6 @@ if __name__ == '__main__':
             print('nope')
     else:
         batch_recv()
-        print(compressing...)
         cfj()
-        print(uploading...)
         up()
-        print(deleting archive)
         os.remove(datetime.now().strftime('%Y-%m-%d') + '-dump.json.tar.bz2')
-        print(done)
