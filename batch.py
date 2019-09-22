@@ -76,21 +76,30 @@ if __name__ == '__main__':
             if len(sys.argv) > 2:
                 dl(sys.argv[2])
                 xf(sys.argv[2])
+                os.remove(sys.argv[2])
             else:
                 dl()
                 xf()
+                os.remove(datetime.now().strftime('%Y-%m-%d') + '-dump.json.tar.bz2')
         elif sys.argv[1] == '-u':
             if len(sys.argv) > 2:
                 cfj(sys.argv[2])
                 up(sys.argv[2] + '.tar.bz2')
+                os.remove(sys.argv[2] + '.tar.bz2')
             else:
                 cfj()
                 up()
+                os.remove(datetime.now().strftime('%Y-%m-%d') + '-dump.json.tar.bz2')
         elif sys.argv[1] == '-b':
             batch_recv()
         else:
             print('nope')
     else:
         batch_recv()
+        print(compressing...)
         cfj()
+        print(uploading...)
         up()
+        print(deleting archive)
+        os.remove(datetime.now().strftime('%Y-%m-%d') + '-dump.json.tar.bz2')
+        print(done)
