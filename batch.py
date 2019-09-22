@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import bz2
+import os
 import requests
 import setparse
 import sys
@@ -30,7 +31,7 @@ def batch_recv():
 def cfj(filename = datetime.now().strftime('%Y-%m-%d') + '-dump.json'):
     """Emulates tar cfj for a given file under the data folder.
 
-    Arguments:
+    Args:
         filename
             A named file under the data/ folder.
     """
@@ -41,7 +42,7 @@ def cfj(filename = datetime.now().strftime('%Y-%m-%d') + '-dump.json'):
 def xf(filename = datetime.now().strftime('%Y-%m-%d') + '-dump.json.tar.bz2'):
     """Emulates tar xf for a given tar.bz file.
 
-    Arguments:
+    Args:
         filename
             A named file.
     """
@@ -50,10 +51,22 @@ def xf(filename = datetime.now().strftime('%Y-%m-%d') + '-dump.json.tar.bz2'):
     tar.close()
 
 def up(filename = datetime.now().strftime('%Y-%m-%d') + '-dump.json.tar.bz2'):
+    """Uploads a file to server via POST.
+
+    Args:
+        filename
+            A named file.
+    """
     files = { 'file': open(filename, 'rb') }
     print(requests.post(config.api, files=files).text)
 
 def dl(filename = datetime.now().strftime('%Y-%m-%d') + '-dump.json.tar.bz2'):
+    """Downloads a file from server via GET.
+
+    Args:
+        filename
+            A named file.
+    """
     r = requests.get(config.api + '?file=' + filename, allow_redirects=True)
     open(filename, 'wb').write(r.content)
 

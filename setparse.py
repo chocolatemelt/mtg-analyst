@@ -11,7 +11,7 @@ def setparse(mtgset, output):
     but standard out, allowing for a little more flexibility in where
     to output the actual JSON data.
 
-    Arguments:
+    Args:
         mtgset
             A string code denoting the set to be fetched.
         output
