@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import bz2
 import os
 import requests
 import setparse
