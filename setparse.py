@@ -46,5 +46,8 @@ def setparse(mtgset, output):
     if sys.stdout is not sys.__stdout__:
         sys.__stdout__.write('\nprocessed ' + str(count) + ' cards from ' + mtgset + '\n')
 
+    # i do hope there's a better way to do this
+    sys.stdout = sys.__stdout__
+
 if __name__ == '__main__':
     setparse(sys.argv[1], sys.__stdout__)
