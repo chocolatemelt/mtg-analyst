@@ -5,6 +5,10 @@ just playing around with streamed analytics. runs on druid, kafka, and scryfall 
 generate dump with batch.py or individual sets with setparse.py
 generate all current commander, core, and expansion sets with genset.py
 
+python packages:
+kafka-python
+requests
+
 kafka / druid quickstart:
 1. download druid, zookeeper, and kafka tarballs and unzip them
 2. move zookeeper into druid root as folder zk
@@ -17,3 +21,6 @@ kafka / druid quickstart:
 faq:
 why tar.bz2 for single files
 	i wasn't paying attention, and by the time i did, i didn't really want to change it
+
+these queries suck
+	sorry, i'm new to druid and i was never particularly strong at crafting sql
