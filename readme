@@ -24,3 +24,6 @@ why tar.bz2 for single files
 
 these queries suck
 	sorry, i'm new to druid and i was never particularly strong at crafting sql
+
+2019-09-24 and 2019-09-25 are the same dataset
+	sorry, i overwrote the data of the 24th with the data from the 25th, which makes it somewhat inaccurate as a viable dataset...
