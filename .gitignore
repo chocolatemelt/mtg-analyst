@@ -1,4 +1,5 @@
 apache-druid-0.15.1-incubating/**
+apache-druid-0.16.0-incubating/**
 kafka_2.12-2.3.0/**
 data/**
 *.pyc
