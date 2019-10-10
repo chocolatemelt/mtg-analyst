@@ -1,4 +1,9 @@
-import { FETCHING_SAMPL_DATA, FETCH_SAMPL_DATA, FETCH_ERROR } from '../actions/Analytics';
+import {
+  FETCHING_SAMPL_DATA,
+  FETCH_SAMPL_DATA,
+  RECV_SAMPL_DATA,
+  FETCH_ERROR,
+} from '../actions/Analytics';
 
 const AnalyticsReducer = (
   state = {
@@ -12,12 +17,12 @@ const AnalyticsReducer = (
     case FETCHING_SAMPL_DATA:
       return {
         ...state,
-        data: action.data,
+        isFetching: action.isFetching,
       };
-    case FETCH_SAMPL_DATA:
+    case RECV_SAMPL_DATA:
       return {
         ...state,
-        isFetching: action.isFetching,
+        data: action.data,
       };
     case FETCH_ERROR:
       return {
