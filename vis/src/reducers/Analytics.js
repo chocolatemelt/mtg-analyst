@@ -1,9 +1,4 @@
-import {
-  FETCHING_SAMPL_DATA,
-  FETCH_SAMPL_DATA,
-  RECV_SAMPL_DATA,
-  FETCH_ERROR,
-} from '../actions/Analytics';
+import { FETCHING_SAMPL_DATA, RECV_SAMPL_DATA, FETCH_ERROR } from '../actions/Analytics';
 
 const AnalyticsReducer = (
   state = {
